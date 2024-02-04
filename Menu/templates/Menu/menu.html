@@ -1,0 +1,18 @@
+<ul>
+    {% if main_menu|length > 1 %}
+        {% for section in main_menu %}
+            <li><a href=""> {{section}} </a></li>
+        {% endfor %}
+    {% else %}
+        <li>{{ main_menu }}</li>
+    {% endif %}
+    <ul>
+        {% for field in menu_items %}
+            {% if field.url %}
+                <li><a href="{{ field.url }}">{{ field }}</a></li>
+            {% else %}
+                <li><a href="{{ field.name }}">{{ field }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</ul>
